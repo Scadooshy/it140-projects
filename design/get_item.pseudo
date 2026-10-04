@@ -11,20 +11,63 @@ START get_item
 
     # TODO 1: Identify the information the get-item process needs.
     # Consider the current room, item in that room, and player's inventory.
+SET current_room = "Foyer" # Player's current room (updated by movement logic)
+SET inventory = [] # Empty list to hold collected items
+SET room_item = NULL # The item available in the current room
+
+IF current_room = "Foyer" THEN
+SET room_item = NULL # Start room has no item
+ELSE IF current_room = "Lockers" THEN
+SET room_item = "Access Card"
+ELSE IF current_room = "Meeting Chamber" THEN
+SET room_item = "Lab Access Code"
+ELSE IF current_room = "Lab" THEN
+SET room_item = "Medical Kit"
+ELSE IF current_room = "Armory" THEN
+SET room_item = "Rifle"
+ELSE IF current_room = "Advanced Materials Testing" THEN
+SET room_item = "EMP Charge"
+ELSE IF current_room = "Monitoring" THEN
+SET room_item = "Mainframe Lock Disengage"
+ELSE IF current_room = "Security Mainframe" THEN
+SET room_item = NULL # Final room - villain encounter
+END IF
 
     # TODO 2: Prompt for and receive the player's get-item command.
+OUTPUT "You are in the " + current_room + "."
+IF room_item IS NOT NULL THEN
+OUTPUT "You see a " + room_item + " here."
+ELSE
+OUTPUT "There is nothing here to take."
+END IF
+
+OUTPUT "Enter 'get item' to pick up an item, or another command:"
+INPUT command
 
     # TODO 3: Validate whether the requested item is available in the current
     # room. Show the decision clearly.
+IF command = "get item" THEN
+IF room_item IS NOT NULL THEN
 
     # TODO 4: Describe what happens when the item request is valid.
     # Include the inventory update and player output.
+ADD room_item TO inventory
+OUTPUT "You picked up the " + room_item + "."
+SET room_item = NULL # Item is removed from the room
+
+ELSE
 
     # TODO 5: Describe what happens when the item request is invalid.
     # Include the output the player should receive.
+OUTPUT "There is no item to get in this room."
+END IF
+ELSE
+OUTPUT "Command not recognized. No item was taken."
+END IF
 
     # TODO 6: Show how the process returns to or continues the larger gameplay
     # loop after the command is handled.
+RETURN to main game loop # Control returns to the main loop where movement and other commands continue
 
 END get_item
 
