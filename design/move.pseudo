@@ -9,17 +9,89 @@
 
 # TODO 1: Identify the information the movement process needs.
 # Consider the player's current room and movement command.
+SET current_room = "Foyer" # Player starts in the Foyer (room0)
+SET game_active = TRUE
 
 # TODO 2: Prompt for and receive the player's movement command.
+WHILE game_active IS TRUE
+OUTPUT "You are in the " + current_room
+OUTPUT "Enter a direction to move (north, south, east, west):"
+INPUT move_command
 
 # TODO 3: Validate whether the requested movement is possible from the
 # current room. Show the decision clearly.
+SET next_room = NULL
+
+IF current_room = "Foyer" THEN
+IF move_command = "north" THEN
+SET next_room = "Security Mainframe"
+ELSE IF move_command = "west" THEN
+SET next_room = "Lockers"
+END IF
+
+ELSE IF current_room = "Lockers" THEN
+IF move_command = "north" THEN
+SET next_room = "Meeting Chamber"
+ELSE IF move_command = "east" THEN
+SET next_room = "Foyer"
+END IF
+
+ELSE IF current_room = "Meeting Chamber" THEN
+IF move_command = "north" THEN
+SET next_room = "Lab"
+ELSE IF move_command = "south" THEN
+SET next_room = "Lockers"
+END IF
+
+ELSE IF current_room = "Lab" THEN
+IF move_command = "east" THEN
+SET next_room = "Armory"
+ELSE IF move_command = "south" THEN
+SET next_room = "Meeting Chamber"
+END IF
+
+ELSE IF current_room = "Armory" THEN
+IF move_command = "east" THEN
+SET next_room = "Advanced Materials Testing"
+ELSE IF move_command = "west" THEN
+SET next_room = "Lab"
+END IF
+
+ELSE IF current_room = "Advanced Materials Testing" THEN
+IF move_command = "south" THEN
+SET next_room = "Monitoring"
+ELSE IF move_command = "west" THEN
+SET next_room = "Armory"
+END IF
+
+ELSE IF current_room = "Monitoring" THEN
+IF move_command = "north" THEN
+SET next_room = "Advanced Materials Testing"
+ELSE IF move_command = "west" THEN
+SET next_room = "Security Mainframe"
+END IF
+
+ELSE IF current_room = "Security Mainframe" THEN
+IF move_command = "north" THEN
+SET next_room = "Monitoring"
+ELSE IF move_command = "south" THEN
+SET next_room = "Foyer"
+END IF
+END IF
 
 # TODO 4: Describe what happens when the movement command is valid.
 # Include the room update and player output.
+IF next_room IS NOT NULL THEN
+SET current_room = next_room
+OUTPUT "You moved to the " + current_room + "."
 
 # TODO 5: Describe what happens when the movement command is invalid.
 # Include the output the player should receive.
+ELSE
+OUTPUT "You cannot go that way. Try a different direction."
+END IF
 
 # TODO 6: Show how movement fits into repeated gameplay.
 # The final game continues accepting commands until a required ending occurs.
+For now, this loop continues; in the full game, a win/lose condition
+would set game_active to FALSE.
