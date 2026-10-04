@@ -7,25 +7,24 @@
 
 **Theme:**
 
-TODO: Name and briefly describe your game's theme.
+TODO: Out of Light: An Espionage Game
 
 **Storyline:**
 
-TODO: In one short paragraph, explain the setting, the player's goal, the items
-the player must gather, and the threat created by the villain.
+TODO: You are a spy for an international political organization tasked with infiltrating and navigating a rival groups secure site to obtain any hidden info they may be hiding. You must navigate through a series of rooms, avoiding any defenses the automated security system has in place, and make it to the final room, where you will deactivate the security system and retrieve the files.
 
 ## Rooms
 
 Project One requires a minimum of eight rooms.
 
-1. TODO: Start room
-2. TODO: Room
-3. TODO: Room
-4. TODO: Room
-5. TODO: Room
-6. TODO: Room
-7. TODO: Room
-8. TODO: Villain room
+1. TODO: Foyer
+2. TODO: Lockers
+3. TODO: Meeting Chamber
+4. TODO: Lab
+5. TODO: Armory
+6. TODO: Advanced Materials Testing
+7. TODO: Monitoring
+8. TODO: Security Mainframe
 
 Add more rooms if your design needs them.
 
@@ -34,19 +33,19 @@ Add more rooms if your design needs them.
 With the minimum eight-room design, Project One requires at least six items.
 Every room except the start room and villain room must contain one item.
 
-1. TODO: Item
-2. TODO: Item
-3. TODO: Item
-4. TODO: Item
-5. TODO: Item
-6. TODO: Item
+1. TODO: Access Card
+2. TODO: Lab Access Code
+3. TODO: Medical Kit
+4. TODO: Rifle
+5. TODO: EMP Charge
+6. TODO: Mainframe Lock Disengage
 
 If you add rooms beyond the minimum, add an item for every additional room
 except the start room and villain room.
 
 ## Villain
 
-TODO: Identify and briefly describe the villain.
+TODO: Security AI, an advanced security system with access to a plethora of weaponry and control tools designed into the building. Through navigating the previous rooms, you should have procured enough supplies to take it down.
 
 ## Storyboard and Map Check
 
